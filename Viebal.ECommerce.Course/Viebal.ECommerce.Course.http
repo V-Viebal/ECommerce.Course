@@ -1,0 +1,6 @@
+@Viebal.ECommerce.Course_HostAddress = http://localhost:5001
+
+GET {{Viebal.ECommerce.Course_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
