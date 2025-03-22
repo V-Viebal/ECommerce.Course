@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course", "Viebal.ECommerce.Course\Viebal.ECommerce.Course.csproj", "{5E3E365A-F52F-6E8D-1543-61BF00F77A27}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.AppHost", "Viebal.ECommerce.Course.AppHost\Viebal.ECommerce.Course.AppHost.csproj", "{9061730E-297C-4DCB-9ECF-8DC44388B620}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.ServiceDefaults", "Viebal.ECommerce.Course.ServiceDefaults\Viebal.ECommerce.Course.ServiceDefaults.csproj", "{E09A29F3-94F3-DA64-030E-0F83C399FE4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OAuth", "OAuth", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAuth.API", "OAuth\Viebal.ECommerce.Course.OAuth.API\Viebal.ECommerce.Course.OAuth.API.csproj", "{A8AE0B86-D2F2-6421-BC50-D008E7927444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAuth.Contract", "OAuth\Viebal.ECommerce.Course.OAuth.Contract\Viebal.ECommerce.Course.OAuth.Contract.csproj", "{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5E3E365A-F52F-6E8D-1543-61BF00F77A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E3E365A-F52F-6E8D-1543-61BF00F77A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E3E365A-F52F-6E8D-1543-61BF00F77A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E3E365A-F52F-6E8D-1543-61BF00F77A27}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9061730E-297C-4DCB-9ECF-8DC44388B620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9061730E-297C-4DCB-9ECF-8DC44388B620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9061730E-297C-4DCB-9ECF-8DC44388B620}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,9 +27,21 @@ Global
 		{E09A29F3-94F3-DA64-030E-0F83C399FE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E09A29F3-94F3-DA64-030E-0F83C399FE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E09A29F3-94F3-DA64-030E-0F83C399FE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8AE0B86-D2F2-6421-BC50-D008E7927444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8AE0B86-D2F2-6421-BC50-D008E7927444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8AE0B86-D2F2-6421-BC50-D008E7927444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8AE0B86-D2F2-6421-BC50-D008E7927444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A8AE0B86-D2F2-6421-BC50-D008E7927444} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16AF6B34-AE43-48DB-9ECE-AAC4EE57033E}

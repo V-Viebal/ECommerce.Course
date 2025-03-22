@@ -4,8 +4,9 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>63ac24e5-04b1-479f-a395-25a40de6106b</UserSecretsId>
+    <UserSecretsId>2ca1da04-865a-49dd-91c6-1c0ba61bbd39</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Viebal.ECommerce.Course.ServiceDefaults\Viebal.ECommerce.Course.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\..\Viebal.ECommerce.Course.ServiceDefaults\Viebal.ECommerce.Course.ServiceDefaults.csproj" />
   </ItemGroup>
 
 </Project>
