@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OAuth\Viebal.ECommerce.Course.OAuth.API\Viebal.ECommerce.Course.OAuth.API.csproj" />
+    <ProjectReference Include="..\OAuth\src\Viebal.ECommerce.Course.OAuth.API\Viebal.ECommerce.Course.OAuth.API.csproj" />
   </ItemGroup>
 
 </Project>
