@@ -13,6 +13,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAuth.Contract", "OAuth\Viebal.ECommerce.Course.OAuth.Contract\Viebal.ECommerce.Course.OAuth.Contract.csproj", "{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAuth.Domain", "OAuth\Viebal.ECommerce.Course.OAuth.Domain\Viebal.ECommerce.Course.OAuth.Domain.csproj", "{93391C2D-29BE-46D9-A663-9559260DD70E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAuth.UseCase", "OAuth\Viebal.ECommerce.Course.OAuth.UseCase\Viebal.ECommerce.Course.OAuth.UseCase.csproj", "{78E0446B-C082-4B88-9E36-1DDE608080A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAuth.Infrastructure", "OAuth\Viebal.ECommerce.Course.OAuth.Infrastructure\Viebal.ECommerce.Course.OAuth.Infrastructure.csproj", "{393EF98D-D5E5-4CDE-9AED-286A6BFFA7A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAuth.SharedKernel", "OAuth\Viebal.ECommerce.Course.OAuth.SharedKernel\Viebal.ECommerce.Course.OAuth.SharedKernel.csproj", "{1E0A0D1F-3119-444F-AAF5-7DE937578D78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Directory", "Directory", "{3D52970C-5EFA-4D36-974B-21FF7621A43B}"
+	ProjectSection(SolutionItems) = preProject
+		OAuth\.editorconfig = OAuth\.editorconfig
+		OAuth\Directory.Build.props = OAuth\Directory.Build.props
+		OAuth\Directory.Packages.props = OAuth\Directory.Packages.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +50,22 @@ Global
 		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93391C2D-29BE-46D9-A663-9559260DD70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93391C2D-29BE-46D9-A663-9559260DD70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93391C2D-29BE-46D9-A663-9559260DD70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93391C2D-29BE-46D9-A663-9559260DD70E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78E0446B-C082-4B88-9E36-1DDE608080A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78E0446B-C082-4B88-9E36-1DDE608080A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78E0446B-C082-4B88-9E36-1DDE608080A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78E0446B-C082-4B88-9E36-1DDE608080A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{393EF98D-D5E5-4CDE-9AED-286A6BFFA7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{393EF98D-D5E5-4CDE-9AED-286A6BFFA7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{393EF98D-D5E5-4CDE-9AED-286A6BFFA7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{393EF98D-D5E5-4CDE-9AED-286A6BFFA7A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E0A0D1F-3119-444F-AAF5-7DE937578D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E0A0D1F-3119-444F-AAF5-7DE937578D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E0A0D1F-3119-444F-AAF5-7DE937578D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0A0D1F-3119-444F-AAF5-7DE937578D78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +73,11 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A8AE0B86-D2F2-6421-BC50-D008E7927444} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{72CE517C-4BA5-4B4D-9DFC-43BE3474782A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{93391C2D-29BE-46D9-A663-9559260DD70E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{78E0446B-C082-4B88-9E36-1DDE608080A4} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{393EF98D-D5E5-4CDE-9AED-286A6BFFA7A2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1E0A0D1F-3119-444F-AAF5-7DE937578D78} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{3D52970C-5EFA-4D36-974B-21FF7621A43B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16AF6B34-AE43-48DB-9ECE-AAC4EE57033E}

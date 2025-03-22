@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <PropertyGroup>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- ASP.NET Core -->
+        <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
+        <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+        <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+
+        <!-- Authentication & Authorization -->
+        <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.2" />
+        <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="7.3.1" />
+
+        <!-- MediatR -->
+        <PackageVersion Include="MediatR" Version="12.2.0" />
+        <PackageVersion Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.1" />
+
+        <!-- Validation -->
+        <PackageVersion Include="FluentValidation" Version="11.9.0" />
+        <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+
+        <!-- Logging -->
+        <PackageVersion Include="Serilog.AspNetCore" Version="9.0.0" />
+        <PackageVersion Include="Serilog.Sinks.Console" Version="5.0.1" />
+
+        <!-- Testing -->
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+        <PackageVersion Include="xunit" Version="2.7.0" />
+        <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.7" />
+        <PackageVersion Include="FakeItEasy" Version="8.1.0" />
+        <PackageVersion Include="Shouldly" Version="4.2.1" />
+
+        <!-- Code Analysis -->
+        <PackageVersion Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
+        <PackageVersion Include="StyleCop.Analyzers" Version="1.1.118" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.19.0.84025" />
+    </ItemGroup>
+</Project>

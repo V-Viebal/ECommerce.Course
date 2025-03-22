@@ -1,0 +1,71 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@baseUrl = https://localhost:7001
+@token = your_access_token_here
+
+### Health Check
+GET {{baseUrl}}/health
+Accept: application/json
+
+### Register new user
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "StrongP@ssw0rd",
+    "username": "testuser",
+    "firstName": "Test",
+    "lastName": "User"
+}
+
+### Login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "StrongP@ssw0rd"
+}
+
+### Refresh Token
+POST {{baseUrl}}/api/auth/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken": "your_refresh_token_here"
+}
+
+### Get Current User Profile
+GET {{baseUrl}}/api/users/me
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Update User Profile
+PUT {{baseUrl}}/api/users/me
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "firstName": "Updated",
+    "lastName": "Name",
+    "phoneNumber": "+1234567890"
+}
+
+### Change Password
+POST {{baseUrl}}/api/users/change-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "currentPassword": "OldP@ssw0rd",
+    "newPassword": "NewP@ssw0rd"
+}
+
+### Logout
+POST {{baseUrl}}/api/auth/logout
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "refreshToken": "your_refresh_token_here"
+} 
