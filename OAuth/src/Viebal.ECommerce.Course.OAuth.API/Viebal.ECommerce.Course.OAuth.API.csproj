@@ -6,6 +6,7 @@
     <UserSecretsId>2ca1da04-865a-49dd-91c6-1c0ba61bbd39</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+	<OpenApiDocumentsDirectory>${MSBuildProjectDirectory}</OpenApiDocumentsDirectory>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +16,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Viebal.ECommerce.Course.ServiceDefaults\Viebal.ECommerce.Course.ServiceDefaults.csproj" />
-    <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.SharedKernel\Viebal.ECommerce.Course.OAuth.SharedKernel.csproj" />
+    <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.Contract\Viebal.ECommerce.Course.OAuth.Contract.csproj" />
+    <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.Infrastructure\Viebal.ECommerce.Course.OAuth.Infrastructure.csproj" />
+    <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.UseCase\Viebal.ECommerce.Course.OAuth.UseCase.csproj" />
   </ItemGroup>
 
 </Project>

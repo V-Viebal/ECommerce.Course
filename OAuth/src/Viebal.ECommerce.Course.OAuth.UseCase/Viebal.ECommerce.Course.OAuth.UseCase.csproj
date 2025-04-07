@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.Domain\Viebal.ECommerce.Course.OAuth.Domain.csproj" />
+    <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.SharedKernel\Viebal.ECommerce.Course.OAuth.SharedKernel.csproj" />
+  </ItemGroup>
+
 </Project>

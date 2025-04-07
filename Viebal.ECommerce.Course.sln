@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viebal.ECommerce.Course.OAuth.SharedKernel", "OAuth\src\Viebal.ECommerce.Course.OAuth.SharedKernel\Viebal.ECommerce.Course.OAuth.SharedKernel.csproj", "{1E0A0D1F-3119-444F-AAF5-7DE937578D78}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Directory", "Directory", "{3D52970C-5EFA-4D36-974B-21FF7621A43B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D52970C-5EFA-4D36-974B-21FF7621A43B}"
 	ProjectSection(SolutionItems) = preProject
 		OAuth\.editorconfig = OAuth\.editorconfig
 		OAuth\Directory.Build.props = OAuth\Directory.Build.props

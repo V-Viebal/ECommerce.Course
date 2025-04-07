@@ -1,7 +1,6 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
-@baseUrl = https://localhost:7033
-@token = your_access_token_here
-
+@baseUrl = https://localhost:3000
+@token = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpbmhucXVvYzE5NkBnbWFpbC5jb20iLCJuYmYiOjE3NDMzMDg4NTUsImV4cCI6MTc0MzUyNDg1NSwiaWF0IjoxNzQzMzA4ODU1LCJpc3MiOiJodHRwczovL2FwaS52aWViYWwudG9wIiwiYXVkIjoidmllYmFsLmF1dGgifQ.9EECW0CRz8BCFeAgF9LLQeRLuijPRRwqC-TSJY8m1uziDm1dmoRrCOTxUUDUvaa6Ju23nXO-mZB9lpNI1XVV1Q
 ### Health Check
 GET {{baseUrl}}/health
 Accept: application/json
@@ -68,4 +67,7 @@ Content-Type: application/json
 
 {
     "refreshToken": "your_refresh_token_here"
-} 
+}
+
+###
+GET {{baseUrl}}/accessToken?accessToken=ya29.a0AeXRPp4F-QLq_YyVdJqGvg9PANk3zrvQgwiR6feEfHvnfWJmWYSnEpttpHBLAGmW_zdVjwf1Ndt1bJpaiSFejAD5lUQjiZCaN3cmZwJ7-8CPk3K2VDg1gdWHoIHQOw7sBwVKRI88At46ezMMKpSY9IIyZjIoIllBO6bZpXMHlwaCgYKAZISARMSFQHGX2MiTjklxo_xPYtzT0O91W8YDQ0177

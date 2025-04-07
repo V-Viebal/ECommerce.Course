@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.UseCase\Viebal.ECommerce.Course.OAuth.UseCase.csproj" />
+  </ItemGroup>
+
 </Project>
