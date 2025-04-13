@@ -40,6 +40,9 @@ jobs:
     outputs:
       build-tag: ${{ steps.set_tag.outputs.build-tag }} # Set output for webTag at the job level
     steps:
+    - uses: actions/checkout@v4
+      name: Checkout code
+
     - name: Set Build Tag Output
       if: ${{ inputs.build-artifacts == true }}
       id: set_tag
