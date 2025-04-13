@@ -32,14 +32,12 @@ permissions:
   
 jobs:
   build:
-    runs-on: ${{ matrix.runner }}
-    strategy:
-      matrix:
-        runner: [ template-1 ] # list of runner's labels
+    runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     outputs:
       build-tag: ${{ steps.set_tag.outputs.build-tag }} # Set output for webTag at the job level
     steps:
+
     - uses: actions/checkout@v4
       name: Checkout code
 
