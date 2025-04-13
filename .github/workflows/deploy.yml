@@ -158,7 +158,7 @@ jobs:
     - name: Set up environment variables for Docker Compose
       run: |
         echo "ENV_NAME=$ENV_NAME" >> .env
-        echo "APP_CONFIG=${{ secrets.APP_CONFIG }}" >> .env
+        echo "APP_CONFIG=${{ secrets.APP_PATH_IN_CONTAINER }}" >> .env
         
     - name: Deploy Service
       run: |

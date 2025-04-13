@@ -12,6 +12,11 @@ on:
         required: false
         default: '/home/ubuntu'
         type: string
+      APP_PATH_IN_CONTAINER:
+        description: 'The main folder to store config,...mapping in the container'
+        required: false
+        default: '/app/apps_data'
+        type: string
       DOCKER_USERNAME:
         description: 'Default Docker Hub Username'
         required: false
@@ -64,9 +69,9 @@ jobs:
           --repo "$ORGANIZATION/$REPO_NAME" \
           --body "${{ github.event.inputs.APP_PATH }}"
 
-        gh secret set APP_PATH \
+        gh secret set APP_PATH_IN_CONTAINER \
           --repo "$ORGANIZATION/$REPO_NAME" \
-          --body "${{ github.event.inputs.APP_CONFIG }}"
+          --body "${{ github.event.inputs.APP_PATH_IN_CONTAINER }}"
           
         gh secret set DOCKER_USERNAME \
           --repo "$ORGANIZATION/$REPO_NAME" \
