@@ -32,7 +32,11 @@ permissions:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.runner }}
+    needs: validate
+    strategy:
+      matrix:
+        runner: [ template-1 ] # list of runner's labels
     environment: ${{ inputs.environment }}
     outputs:
       build-tag: ${{ steps.set_tag.outputs.build-tag }} # Set output for webTag at the job level
@@ -62,7 +66,6 @@ jobs:
       if: ${{ inputs.build-artifacts == true }}
       run: |
         # Build the image using the Dockerfile in the specified path
-        echo $(ls)
         docker build \
             -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:${{ steps.set_tag.outputs.build-tag }} \
             -f ${{ vars.DOCKER_FILES_FOLDER }}/Dockerfile .
