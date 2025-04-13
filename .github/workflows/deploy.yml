@@ -171,4 +171,4 @@ jobs:
             echo "No running stack found for $SERVICE_NAME. Skipping removal."
         fi
         echo "Deploying stack: $SERVICE_NAME"
-        docker stack deploy $SERVICE_NAME -c ${{ secrets.DOCKER_FILES_FOLDER }}\docker-compose.yml
+        docker stack deploy $SERVICE_NAME -c ${{ vars.DOCKER_FILES_FOLDER }}\docker-compose.yml

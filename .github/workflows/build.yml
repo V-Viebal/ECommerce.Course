@@ -58,13 +58,13 @@ jobs:
         # Optionally, you can print the build tag for logging purposes
         echo "Generated Build Tag: ${BUILD_TAG}"
 
-    - name: Build Angular Docker Image
+    - name: Build Docker Image
       if: ${{ inputs.build-artifacts == true }}
       run: |
-        # Build the Angular image using the Dockerfile in the specified path
+        # Build the image using the Dockerfile in the specified path
         docker build \
             -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:${{ steps.set_tag.outputs.build-tag }} \
-            -f ${{ secrets.DOCKER_FILES_FOLDER }}/Dockerfile .
+            -f ${{ vars.DOCKER_FILES_FOLDER }}/Dockerfile .
 
     - name: Tag Docker Image as latest
       if: ${{ inputs.build-artifacts == true }}

@@ -95,6 +95,7 @@ jobs:
             "SERVICE_NAME=auth.api"
             "SERVICE_DOMAIN=api.viebal.top"
             "SERVICE_PORT=5000"
+            "DOCKER_FILES_FOLDER=OAuth/src/Viebal.ECommerce.Course.OAuth.API"
           )
           
           for variable in "${variables_to_set[@]}"; do
