@@ -33,7 +33,6 @@ permissions:
 jobs:
   build:
     runs-on: ${{ matrix.runner }}
-    needs: validate
     strategy:
       matrix:
         runner: [ template-1 ] # list of runner's labels
