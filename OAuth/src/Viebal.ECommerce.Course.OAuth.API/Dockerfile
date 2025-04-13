@@ -3,16 +3,22 @@
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 
+# Install curl
+USER root
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
 # Set default values for USER_ID and GROUP_ID
-#ARG USER_ID=2000
-#ARG GROUP_ID=2000
+ARG USER_ID=2000
+ARG GROUP_ID=2000
 
 # Create a group and user with the passed or default UID/GID
-#RUN addgroup --gid ${GROUP_ID} apiuser && \
-#    adduser --disabled-password --gecos "" --uid ${USER_ID} --gid ${GROUP_ID} apiuser
+RUN addgroup --gid ${GROUP_ID} apiuser && \
+    adduser --disabled-password --gecos "" --uid ${USER_ID} --gid ${GROUP_ID} apiuser
 
 # Switch to the new non-root user
-USER $APP_UID
+USER apiuser
 WORKDIR /app
 EXPOSE 5000
 HEALTHCHECK --start-period=60s --interval=10s CMD curl --fail http://localhost:5000/health || exit 1

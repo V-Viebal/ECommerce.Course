@@ -1,0 +1,43 @@
+﻿version: '3.8'
+
+services:
+    service:
+        image: "${DOCKER_USERNAME}/${DOCKER_REPO}:${BUILD_TAG}"
+        container_name: "${SERVICE_NAME}"
+        env_file:
+          - .env
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+          - APP_CONFIG_PATH=${APP_CONFIG}
+        volumes:
+          - apps_data:/app/apps_data
+        networks: # REQUIRED: Should be 'public' to join into docker swarm.
+          - public
+        deploy:
+          mode: replicated
+          replicas: 1
+          placement:
+            constraints: 
+              - node.platform.os == linux
+              - node.role == worker
+
+          labels:
+            - "traefik.enable=true"
+            - "traefik.docker.network=public"
+            - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+            - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
+            - "traefik.http.routers.${SERVICE_NAME}.rule=Host(`${SERVICE_DOMAIN}`)"
+            - "traefik.http.routers.${SERVICE_NAME}.entrypoints=web"
+            - "traefik.http.routers.${SERVICE_NAME}.middlewares=https-redirect"
+            - "traefik.http.routers.${SERVICE_NAME}.entrypoints=websecure" # Can be 'web' to refer http instead.
+            - "traefik.http.services.${SERVICE_NAME}.loadbalancer.server.port=${SERVICE_PORT}"
+            - "traefik.http.routers.${SERVICE_NAME}.service=${SERVICE_NAME}"
+            - "traefik.http.routers.${SERVICE_NAME}.tls.certresolver=leresolver"
+
+volumes:
+  apps_data:
+    external: true
+
+networks:
+  public:
+    external: true

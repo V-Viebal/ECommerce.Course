@@ -38,6 +38,12 @@ builder.Configuration
     .AddUserSecrets<Program>()
     .AddEnvironmentVariables();
 
+var appConfigPath = Environment.GetEnvironmentVariable("APP_CONFIG_PATH");
+if (!string.IsNullOrWhiteSpace(appConfigPath))
+{
+    builder.Configuration.AddJsonFile(Path.Combine(appConfigPath, $"appsettings.{builder.Environment.EnvironmentName}.json"), optional: true, reloadOnChange: true);
+}
+
 // Config Options
 builder.Services.AddAppConfigurations(builder.Configuration);
 
