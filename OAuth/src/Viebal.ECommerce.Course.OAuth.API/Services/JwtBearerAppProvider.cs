@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -33,7 +34,7 @@ class JwtBearerAppProvider(IOptions<JwtBearerAppOptions> jwtBearerOpts) : IAppTo
 
     public string GenerateRefreshToken()
     {
-        return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+        return WebEncoders.Base64UrlEncode(RandomNumberGenerator.GetBytes(64));
     }
 
     private static ClaimsIdentity GenerateClaims(User user)

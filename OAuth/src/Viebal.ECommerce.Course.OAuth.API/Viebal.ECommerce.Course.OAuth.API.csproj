@@ -8,17 +8,33 @@
     <DockerfileContext>..\..</DockerfileContext>
 	<OpenApiDocumentsDirectory>${MSBuildProjectDirectory}</OpenApiDocumentsDirectory>
   </PropertyGroup>
+	
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  	<ExcludeServiceDefaults>true</ExcludeServiceDefaults>
+  </PropertyGroup>
 
+  <PropertyGroup Condition="'$(ExcludeServiceDefaults)' == 'true'">
+  	<DefineConstants>EXCLUDE_SERVICE_DEFAULTS</DefineConstants>
+  </PropertyGroup>
+	
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
   </ItemGroup>
 
+
+  <ItemGroup Condition="'$(ExcludeServiceDefaults)' != 'true'">
+  	<ProjectReference Include="..\..\..\Viebal.ECommerce.Course.ServiceDefaults\Viebal.ECommerce.Course.ServiceDefaults.csproj" />
+  </ItemGroup>
+	
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Viebal.ECommerce.Course.ServiceDefaults\Viebal.ECommerce.Course.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.Contract\Viebal.ECommerce.Course.OAuth.Contract.csproj" />
     <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.Infrastructure\Viebal.ECommerce.Course.OAuth.Infrastructure.csproj" />
     <ProjectReference Include="..\Viebal.ECommerce.Course.OAuth.UseCase\Viebal.ECommerce.Course.OAuth.UseCase.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

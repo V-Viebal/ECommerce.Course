@@ -66,6 +66,7 @@ class AuthenticationEndpoints : EndpointGroupBase
         AppDbContext dbContext,
         IAppTokenProvider tokenProvider,
         IOptions<ServerSettings> serverSettings,
+        ILogger<AuthenticationEndpoints> logger,
         CancellationToken cancellation)
     {
         var user = await dbContext.Users
@@ -73,6 +74,7 @@ class AuthenticationEndpoints : EndpointGroupBase
             .Where(x => x.Password == request.Password)
             .FirstOrDefaultAsync(cancellation);
 
+        logger.LogDebug("User ...called with email: {@User}", user);
         if (user is null)
             return Results.NotFound("Not found the user");
 

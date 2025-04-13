@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,6 +43,7 @@
     <PackageReference Include="Refit.HttpClientFactory" />
     <PackageReference Include="Scalar.AspNetCore" />
     <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.AspNetCore" />
     <PackageReference Include="Serilog.Settings.Configuration" />
     <PackageReference Include="Serilog.Sinks.Console" />
   </ItemGroup>
