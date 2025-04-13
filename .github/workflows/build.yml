@@ -62,7 +62,7 @@ jobs:
       if: ${{ inputs.build-artifacts == true }}
       run: |
         # Build the image using the Dockerfile in the specified path
-        ls .
+        echo $(ls)
         docker build \
             -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:${{ steps.set_tag.outputs.build-tag }} \
             -f ${{ vars.DOCKER_FILES_FOLDER }}/Dockerfile .
