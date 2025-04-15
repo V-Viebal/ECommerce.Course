@@ -10,15 +10,15 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Set default values for USER_ID and GROUP_ID
-ARG USER_ID=2000
-ARG GROUP_ID=2000
+# ARG USER_ID=2000
+# ARG GROUP_ID=2000
 
 # Create a group and user with the passed or default UID/GID
-RUN addgroup --gid ${GROUP_ID} apiuser && \
-    adduser --disabled-password --gecos "" --uid ${USER_ID} --gid ${GROUP_ID} apiuser
+#RUN addgroup --gid ${GROUP_ID} apiuser && \
+#    adduser --disabled-password --gecos "" --uid ${USER_ID} --gid ${GROUP_ID} apiuser
 
 # Switch to the new non-root user
-USER apiuser
+USER $APP_UID
 WORKDIR /app
 EXPOSE 5000
 HEALTHCHECK --start-period=60s --interval=10s CMD curl --fail http://localhost:5000/health || exit 1
