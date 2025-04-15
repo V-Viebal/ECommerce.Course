@@ -18,7 +18,7 @@ RUN apt-get update && \
 #    adduser --disabled-password --gecos "" --uid ${USER_ID} --gid ${GROUP_ID} apiuser
 
 # Switch to the new non-root user
-USER $APP_UID
+#USER $APP_UID
 WORKDIR /app
 EXPOSE 5000
 HEALTHCHECK --start-period=60s --interval=10s CMD curl --fail http://localhost:5000/health || exit 1
