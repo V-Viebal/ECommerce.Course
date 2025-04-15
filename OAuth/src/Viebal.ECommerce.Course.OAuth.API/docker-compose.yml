@@ -10,7 +10,7 @@ services:
           - ASPNETCORE_ENVIRONMENT=Development
           - APP_CONFIG_PATH=${APP_CONFIG}
         volumes:
-          - apps_data:/app/apps_data
+          - shared-volume:/app/apps_data
         networks: # REQUIRED: Should be 'public' to join into docker swarm.
           - public
         deploy:
@@ -35,8 +35,12 @@ services:
             - "traefik.http.routers.${SERVICE_NAME}.tls.certresolver=leresolver"
 
 volumes:
-  apps_data:
-    external: true
+  shared-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/shared-data
+      o: bind
 
 networks:
   public:
