@@ -10,7 +10,7 @@ services:
           - ASPNETCORE_ENVIRONMENT=Development
           - APP_CONFIG_PATH=${APP_CONFIG}
         volumes:
-          - shared-volume:/app/apps_data
+          - shared-volume:/mnt
         networks: # REQUIRED: Should be 'public' to join into docker swarm.
           - public
         deploy:
