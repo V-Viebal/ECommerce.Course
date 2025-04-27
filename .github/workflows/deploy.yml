@@ -172,9 +172,9 @@ jobs:
         mkdir -p ${{ secrets.SHARED_APP_PATH }}/$APP_ENV_NAME
         DOCKER_ENV=${{ secrets.SHARED_APP_PATH }}/$APP_ENV_NAME/.env
         touch $DOCKER_ENV
-        echo "APP_CONFIG_PATH=${{ secrets.SHARED_APP_PATH_IN_CONTAINER }}/$APP_ENV_NAME" >> $DOCKER_ENV
-        echo "ASPNETCORE_ENVIRONMENT=${APP_ENV_NAME}" >> $DOCKER_ENV
         echo "DOCKER_ENV=${DOCKER_ENV}" >> $GITHUB_ENV
+        echo "APP_CONFIG_PATH=${{ secrets.SHARED_APP_PATH_IN_CONTAINER }}/$APP_ENV_NAME" > $DOCKER_ENV
+        echo "ASPNETCORE_ENVIRONMENT=${APP_ENV_NAME}" >> $DOCKER_ENV
         
     - name: Deploy Service
       run: |
