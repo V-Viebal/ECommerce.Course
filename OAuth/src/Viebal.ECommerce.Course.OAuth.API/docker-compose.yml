@@ -5,10 +5,7 @@ services:
         image: "${DOCKER_USERNAME}/${DOCKER_REPO}:${BUILD_TAG}"
         container_name: "${SERVICE_NAME}"
         env_file:
-          - .env
-        environment:
-          - ASPNETCORE_ENVIRONMENT=Development
-          - APP_CONFIG_PATH="${APP_CONFIG}"
+          - "${DOCKER_ENV}"
         volumes:
           - apps_data:/mnt
         networks: # REQUIRED: Should be 'public' to join into docker swarm.

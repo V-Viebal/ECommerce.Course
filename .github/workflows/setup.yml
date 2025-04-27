@@ -8,14 +8,19 @@ on:
         required: true
         type: string
       APP_PATH:
-        description: 'The main folder to store config,...'
+        description: 'The main folder to store global config,... in the manager node'
         required: false
-        default: '/home/ubuntu'
+        default: '/home/ubuntu/viebal/{specific_app_folder_name}'
         type: string
-      APP_PATH_IN_CONTAINER:
-        description: 'The main folder to store config,...mapping in the container'
+      SHARED_APP_PATH:
+        description: 'The NFS shared folder to store config,...for the specific app'
         required: false
-        default: '/app/apps_data'
+        default: '/srv/nfs/apps_data/{specific_app_folder_name}'
+        type: string
+      SHARED_APP_PATH_IN_CONTAINER:
+        description: 'The NFS shared folder to store config,...for the specific app mapping to the container'
+        required: false
+        default: '/mnt/{specific_app_folder_name}'
         type: string
       DOCKER_USERNAME:
         description: 'Default Docker Hub Username'
@@ -69,10 +74,14 @@ jobs:
           --repo "$ORGANIZATION/$REPO_NAME" \
           --body "${{ github.event.inputs.APP_PATH }}"
 
-        gh secret set APP_PATH_IN_CONTAINER \
+        gh secret set SHARED_APP_PATH \
           --repo "$ORGANIZATION/$REPO_NAME" \
-          --body "${{ github.event.inputs.APP_PATH_IN_CONTAINER }}"
-          
+          --body "${{ github.event.inputs.SHARED_APP_PATH }}"
+
+        gh secret set SHARED_APP_PATH_IN_CONTAINER \
+          --repo "$ORGANIZATION/$REPO_NAME" \
+          --body "${{ github.event.inputs.SHARED_APP_PATH_IN_CONTAINER }}"
+
         gh secret set DOCKER_USERNAME \
           --repo "$ORGANIZATION/$REPO_NAME" \
           --body "${{ github.event.inputs.DOCKER_USERNAME }}"

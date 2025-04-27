@@ -67,6 +67,7 @@ jobs:
         touch $ENV_CONFIG
         
         echo "APP_PATH=${{ secrets.APP_PATH }}" >> $ENV_CONFIG
+        echo "SHARED_APP_PATH_IN_CONTAINER=${{ secrets.SHARED_APP_PATH_IN_CONTAINER }}" >> $ENV_CONFIG
         echo "ENV_CONFIG=$ENV_CONFIG" >> $ENV_CONFIG
         echo "ENV_NAME=${{ inputs.environment }}" >> $ENV_CONFIG
         echo "DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}" >> $ENV_CONFIG
@@ -158,10 +159,22 @@ jobs:
           
     - name: Set up environment variables for Docker Compose
       run: |
-        DOCKER_ENV=${{ vars.DOCKER_FILES_FOLDER }}/.env
+        # By default, the env is set to Development
+        export APP_ENV_NAME=Development
+        if [[ "${GITHUB_REF##*/}" == "production" ]]; then
+            APP_ENV_NAME="Production"
+          elif [[ "${GITHUB_REF##*/}" == "staging" ]]; then
+            APP_ENV_NAME="Staging"
+          elif [[ "${GITHUB_REF##*/}" == "develop" ]]; then
+            APP_ENV_NAME="Development"
+          fi
+        # Create the .env file in the nfs shared folder for specified app at specified env
+        mkdir -p ${{ secrets.SHARED_APP_PATH }}/$APP_ENV_NAME
+        DOCKER_ENV=${{ secrets.SHARED_APP_PATH }}/$APP_ENV_NAME/.env
         touch $DOCKER_ENV
-        echo "ENV_NAME=$ENV_NAME" >> $DOCKER_ENV
-        echo "APP_CONFIG=${{ secrets.APP_PATH_IN_CONTAINER }}" >> $DOCKER_ENV
+        echo "APP_CONFIG_PATH=${{ secrets.SHARED_APP_PATH_IN_CONTAINER }}/$APP_ENV_NAME" >> $DOCKER_ENV
+        echo "ASPNETCORE_ENVIRONMENT=${APP_ENV_NAME}" >> $DOCKER_ENV
+        echo "DOCKER_ENV=${DOCKER_ENV}" >> $GITHUB_ENV
         
     - name: Deploy Service
       run: |
