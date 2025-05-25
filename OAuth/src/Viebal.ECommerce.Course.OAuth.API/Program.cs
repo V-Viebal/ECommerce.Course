@@ -1,6 +1,7 @@
 using Asp.Versioning;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Refit;
 using Scalar.AspNetCore;
@@ -135,6 +136,7 @@ else
 {
     var context = app.Services.GetRequiredService<AppDbContext>();
     await context.Database.EnsureCreatedAsync().ConfigureAwait(false);
+    await context.Database.MigrateAsync().ConfigureAwait(false);
 
     app.MapOpenApi("/openapi/{documentName}.json").AllowAnonymous();
     app.MapScalarApiReference(opts =>
