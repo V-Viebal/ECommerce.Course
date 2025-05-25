@@ -22,6 +22,7 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.3" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.3" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.5" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3" />
     <PackageVersion Include="Microsoft.Extensions.ApiDescription.Server" Version="9.0.3">
       <PrivateAssets>all</PrivateAssets>

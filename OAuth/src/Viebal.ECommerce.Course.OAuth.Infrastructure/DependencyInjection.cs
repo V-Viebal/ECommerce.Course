@@ -16,13 +16,24 @@ public static class DependencyInjectionExtensions
 
         var users = configuration.GetSection("Database:Seeding:Users").Get<User[]>() ?? [];
 
-        services.AddDbContext<AppDbContext>(opts => opts.UseInMemoryDatabase("InMemoryDb").UseAsyncSeeding(async (context, _, cancellation) =>
+        services.AddDbContextPool<AppDbContext>(opts =>
         {
-            foreach (var user in users)
-                await context.Set<User>().AddAsync(user, cancellation);
+            opts.UseSqlServer(configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
 
-            await context.SaveChangesAsync(cancellation);
-        }));
+            opts.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
+            opts.UseAsyncSeeding(async (context, _, cancellation) =>
+            {
+                var userSet = context.Set<User>();
+
+                var hasUsers = await userSet.AnyAsync(cancellation);
+                if (!hasUsers)
+                {
+                    await userSet.AddRangeAsync(users, cancellation);
+                    await context.SaveChangesAsync(cancellation);
+                }
+            });
+        });
 
         return services;
     }
