@@ -22,6 +22,18 @@ public static class DependencyInjectionExtensions
 
             opts.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 
+            opts.UseSeeding((context, _) =>
+            {
+                var userSet = context.Set<User>();
+
+                var hasUsers = userSet.Any();
+                if (!hasUsers)
+                {
+                    userSet.AddRange(users);
+                    context.SaveChanges();
+                }
+            });
+
             opts.UseAsyncSeeding(async (context, _, cancellation) =>
             {
                 var userSet = context.Set<User>();
