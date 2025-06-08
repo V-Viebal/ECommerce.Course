@@ -15,7 +15,6 @@ using Viebal.ECommerce.Course.OAuth.API.Services;
 using Viebal.ECommerce.Course.OAuth.Infrastructure;
 using Viebal.ECommerce.Course.OAuth.Infrastructure.Data;
 using Viebal.ECommerce.Course.OAuth.SharedKernel.Extensions;
-using Viebal.ECommerce.Course.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 
