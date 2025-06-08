@@ -15,6 +15,7 @@ using Viebal.ECommerce.Course.OAuth.API.Services;
 using Viebal.ECommerce.Course.OAuth.Infrastructure;
 using Viebal.ECommerce.Course.OAuth.Infrastructure.Data;
 using Viebal.ECommerce.Course.OAuth.SharedKernel.Extensions;
+using Viebal.ECommerce.Course.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -137,6 +138,11 @@ else
     var context = app.Services.GetRequiredService<AppDbContext>();
     await context.Database.EnsureCreatedAsync().ConfigureAwait(false);
     await context.Database.MigrateAsync().ConfigureAwait(false);
+
+    var courseContext = app.Services.GetRequiredService<CourseDbContext>();
+    await courseContext.Database.EnsureCreatedAsync().ConfigureAwait(false);
+    await courseContext.Database.MigrateAsync().ConfigureAwait(false);
+
 
     app.MapOpenApi("/openapi/{documentName}.json").AllowAnonymous();
     app.MapScalarApiReference(opts =>

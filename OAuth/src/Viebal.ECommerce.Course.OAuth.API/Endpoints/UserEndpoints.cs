@@ -11,7 +11,7 @@ class UserEndpoints : EndpointGroupBase
 {
     public override void Map(WebApplication webApp)
     {
-        var routes = webApp.MapGroup(this, "User");
+        var routes = webApp.MapGroup(this, "Users");
 
         routes.Map(GetUserProfile);
         routes.Map(ResetPassword);

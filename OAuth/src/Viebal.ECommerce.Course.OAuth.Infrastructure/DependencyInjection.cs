@@ -18,6 +18,7 @@ public static class DependencyInjectionExtensions
 
         services.AddDbContextPool<AppDbContext>(opts =>
         {
+            var test = configuration.GetConnectionString("DefaultConnection");
             opts.UseSqlServer(configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
 
             opts.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
@@ -45,6 +46,14 @@ public static class DependencyInjectionExtensions
                     await context.SaveChangesAsync(cancellation);
                 }
             });
+        });
+
+        services.AddDbContextPool<CourseDbContext>(opts =>
+        {
+            var test = configuration.GetConnectionString("CourseDb");
+            opts.UseSqlServer(configuration.GetConnectionString("CourseDb") ?? string.Empty);
+
+            opts.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         });
 
         return services;
